@@ -16,12 +16,12 @@ class MenuController: UITableViewController {
     public var delegate: MenuControllerDelegate?
     private let menuItems: [String]
     private let color = UIColor(red: 32/255.0, green: 33/255.0, blue: 33/255.0, alpha: 1)
+
     
     // MARK: - Init
     init(with menuItems: [String]) {
         self.menuItems = menuItems
         super.init(nibName: nil, bundle: nil)
-     
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
     
@@ -43,7 +43,7 @@ class MenuController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = menuItems[indexPath.row]
         cell.textLabel?.textColor = .white
-        cell.backgroundColor = .darkGray
+        cell.backgroundColor = color
         cell.contentView.backgroundColor = color
         return cell
     }

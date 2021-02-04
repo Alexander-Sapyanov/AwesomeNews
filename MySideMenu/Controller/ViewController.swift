@@ -12,22 +12,21 @@ class ViewController: UIViewController, MenuControllerDelegate {
     private var sideMenu: SideMenuNavigationController?
     private let settingsController = SettingsViewController()
     private let infoViewController = InfoViewController()
-    private var tableView: UITableView!
-    private let cache = NSCache<NSNumber, UIImage>()
-    private let utilityQueue = DispatchQueue.global(qos: .utility)
-
     
     
     // JSON
     
-    private let url = "https://newsapi.org/v2/everything?q=tesla&from=2021-01-02&sortBy=publishedAt&apiKey=9fb06d2a97d54c68a7c3ab48bc158c32"
+    private let url = "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=9fb06d2a97d54c68a7c3ab48bc158c32"
     private var datas = [Articles]()
+    
+    
     @IBOutlet weak var newsTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         newsTableView.delegate = self
         newsTableView.dataSource = self
+        
         newsTableView.register(NewsTableViewCell.self, forCellReuseIdentifier: NewsTableViewCell.identifire)
         
         let menu =  MenuController(with:[ "Home","Info","Settings"])
@@ -38,9 +37,11 @@ class ViewController: UIViewController, MenuControllerDelegate {
         
         SideMenuManager.default.leftMenuNavigationController = sideMenu
         SideMenuManager.default.addPanGestureToPresent(toView: view)
+        sideMenu?.setNavigationBarHidden(true, animated: false)
         
         addChildControllers()
         
+        navigationController?.navigationBar.prefersLargeTitles = true
         
         request()
     }
@@ -115,24 +116,7 @@ class ViewController: UIViewController, MenuControllerDelegate {
         }
         return news
     }
-    func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
-        URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
-    }
-    func dowloadImage(from url: URL) {
-        print("Download Started")
-        getData(from: url) {data, response, error in
-            guard let data = data, error == nil else { return }
-            print(response?.suggestedFilename ?? url.lastPathComponent)
-            print("Dowload Fineshed")
-            DispatchQueue.main.async {
-                
-            }
-        }
-    }
-
     
-    
-
     @IBAction func didTapMenuButton(){
         present(sideMenu!, animated: true)
     }
@@ -166,18 +150,16 @@ extension ViewController: UITableViewDataSource{
         let currentUrl = datas[indexPath.row].urlToImage
         
         guard let url = URL(string: currentUrl ?? "https://picsum.photos/200") else {return cell}
-  
-    
         cell.imageView?.sd_setImage(with: url,placeholderImage: UIImage(named: "1"),options: [.continueInBackground,.progressiveLoad],completed: nil)
-        cell.backgroundColor = .red
-        cell.imageView?.contentMode = .scaleAspectFill
-        
         cell.textLabel?.text = datas[indexPath.row].title
-        
+        cell.detailTextLabel?.text = datas[indexPath.row].publishedAt
+        cell.imageView?.clipsToBounds = true
+        cell.contentMode = .scaleAspectFit
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200
+        
     }
 }
 
