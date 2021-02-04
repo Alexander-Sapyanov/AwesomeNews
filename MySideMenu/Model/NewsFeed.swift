@@ -12,7 +12,6 @@ struct NewsFeed: Codable {
     var articles: [Articles]?
 }
 
-
 struct Articles: Codable {
     var author: String?
     var title: String?

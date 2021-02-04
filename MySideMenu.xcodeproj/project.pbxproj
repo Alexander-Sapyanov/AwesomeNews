@@ -18,6 +18,7 @@
 		1132605125C96E2000BAA0C2 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1132605025C96E2000BAA0C2 /* SettingsViewController.swift */; };
 		1132605C25C978DA00BAA0C2 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1132605B25C978DA00BAA0C2 /* NewsTableViewCell.swift */; };
 		1132606225C982DD00BAA0C2 /* NewsFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1132606125C982DD00BAA0C2 /* NewsFeed.swift */; };
+		113C10F425CBC196008C12E7 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113C10F325CBC196008C12E7 /* Networking.swift */; };
 		D282004A6E2BA7BE5D05A6F8 /* Pods_MySideMenu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD776C466A31631743AA5CC2 /* Pods_MySideMenu.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		1132605025C96E2000BAA0C2 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		1132605B25C978DA00BAA0C2 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		1132606125C982DD00BAA0C2 /* NewsFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeed.swift; sourceTree = "<group>"; };
+		113C10F325CBC196008C12E7 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		1158B4F9D38FA2BB1099CD10 /* Pods-MySideMenu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MySideMenu.release.xcconfig"; path = "Target Support Files/Pods-MySideMenu/Pods-MySideMenu.release.xcconfig"; sourceTree = "<group>"; };
 		36363975049754C39058FBAC /* Pods-MySideMenu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MySideMenu.debug.xcconfig"; path = "Target Support Files/Pods-MySideMenu/Pods-MySideMenu.debug.xcconfig"; sourceTree = "<group>"; };
 		CD776C466A31631743AA5CC2 /* Pods_MySideMenu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MySideMenu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,6 +57,8 @@
 		1132602425C962CD00BAA0C2 = {
 			isa = PBXGroup;
 			children = (
+				1132603025C962CD00BAA0C2 /* AppDelegate.swift */,
+				1132603225C962CD00BAA0C2 /* SceneDelegate.swift */,
 				1132602F25C962CD00BAA0C2 /* MySideMenu */,
 				1132602E25C962CD00BAA0C2 /* Products */,
 				C0706762D3C53C6B0141CAB6 /* Pods */,
@@ -73,15 +77,13 @@
 		1132602F25C962CD00BAA0C2 /* MySideMenu */ = {
 			isa = PBXGroup;
 			children = (
-				1132606025C982A700BAA0C2 /* Controller */,
-				1132605F25C9829E00BAA0C2 /* View */,
-				1132605E25C9829200BAA0C2 /* Model */,
-				1132603025C962CD00BAA0C2 /* AppDelegate.swift */,
-				1132603225C962CD00BAA0C2 /* SceneDelegate.swift */,
-				1132603625C962CD00BAA0C2 /* Main.storyboard */,
-				1132603925C962D000BAA0C2 /* Assets.xcassets */,
-				1132603B25C962D000BAA0C2 /* LaunchScreen.storyboard */,
 				1132603E25C962D000BAA0C2 /* Info.plist */,
+				1132603925C962D000BAA0C2 /* Assets.xcassets */,
+				1132605E25C9829200BAA0C2 /* Model */,
+				1132605F25C9829E00BAA0C2 /* View */,
+				1132606025C982A700BAA0C2 /* Controller */,
+				113C10F925CBE1F4008C12E7 /* Storyboards */,
+				113C10F725CBC218008C12E7 /* Networking */,
 			);
 			path = MySideMenu;
 			sourceTree = "<group>";
@@ -111,6 +113,31 @@
 				1132605025C96E2000BAA0C2 /* SettingsViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		113C10F725CBC218008C12E7 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				113C10F325CBC196008C12E7 /* Networking.swift */,
+				113C10FB25CBE3E0008C12E7 /* Other */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		113C10F925CBE1F4008C12E7 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				1132603625C962CD00BAA0C2 /* Main.storyboard */,
+				1132603B25C962D000BAA0C2 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		113C10FB25CBE3E0008C12E7 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Other;
 			sourceTree = "<group>";
 		};
 		C0706762D3C53C6B0141CAB6 /* Pods */ = {
@@ -247,6 +274,7 @@
 				1132603525C962CD00BAA0C2 /* ViewController.swift in Sources */,
 				1132605C25C978DA00BAA0C2 /* NewsTableViewCell.swift in Sources */,
 				1132606225C982DD00BAA0C2 /* NewsFeed.swift in Sources */,
+				113C10F425CBC196008C12E7 /* Networking.swift in Sources */,
 				1132603125C962CD00BAA0C2 /* AppDelegate.swift in Sources */,
 				1132603325C962CD00BAA0C2 /* SceneDelegate.swift in Sources */,
 				1132604A25C96D8400BAA0C2 /* SideMenu.swift in Sources */,
