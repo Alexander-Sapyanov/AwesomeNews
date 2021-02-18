@@ -15,17 +15,11 @@ class ViewController: UIViewController, MenuControllerDelegate {
     
     private var sideMenu: SideMenuNavigationController?
     private let infoController = InfoViewController()
-    private let settingsViewController = SettingsViewController()
     
     // MARK: - JSON
-    
     private let url = "https://newsapi.org/v2/top-headlines?country=us&apiKey=9fb06d2a97d54c68a7c3ab48bc158c32"
-    private let techUrl = "https://newsapi.org/v2/everything?domains=techcrunch.com,thenextweb.com&apiKey=9fb06d2a97d54c68a7c3ab48bc158c32"
-    private let business = "https://newsapi.org/v2/top-headlines?country=de&category=business&apiKey=9fb06d2a97d54c68a7c3ab48bc158c32"
     private var datas = [Articles]()
     private let networkService = Networking()
-    
-    
     @IBOutlet weak var newsTableView: UITableView!
     
     // MARK: - Lifecycle
@@ -37,7 +31,7 @@ class ViewController: UIViewController, MenuControllerDelegate {
         newsTableView.dataSource = self
         newsTableView.register(NewsTableViewCell.self, forCellReuseIdentifier: NewsTableViewCell.identifire)
         
-        let menu =  MenuController(with:[ "Top Headlines","Info","Settings"])
+        let menu =  MenuController(with:[ "Top Headlines","Info"])
         menu.delegate = self
         sideMenu = SideMenuNavigationController(rootViewController:menu)
         sideMenu?.leftSide = true
@@ -78,18 +72,16 @@ class ViewController: UIViewController, MenuControllerDelegate {
     
     private func addChildControllers() {
         addChild(self.infoController)
-        addChild(self.settingsViewController)
         
         view.addSubview(infoController.view)
-        view.addSubview(settingsViewController.view)
+ 
         
         infoController.view.frame = view.bounds
-        settingsViewController.view.frame = view.bounds
+       
         
         infoController.didMove(toParent: self)
-        settingsViewController.didMove(toParent: self)
+
         
-        settingsViewController.view.isHidden = true
         infoController.view.isHidden = true
     }
     
@@ -99,14 +91,11 @@ class ViewController: UIViewController, MenuControllerDelegate {
             self?.title = named
             if named == "Top Headlines" {
                 self?.infoController.view.isHidden = true
-                self?.settingsViewController.view.isHidden = true
+      
                 
             } else if named == "Info" {
                 self?.infoController.view.isHidden = false
-                self?.settingsViewController.view.isHidden = true
-            }else if named == "Settings"{
-                self?.infoController.view.isHidden = true
-                self?.settingsViewController.view.isHidden = false
+
             }
         })
     }

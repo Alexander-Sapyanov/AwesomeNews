@@ -15,7 +15,6 @@
 		1132603D25C962D000BAA0C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1132603B25C962D000BAA0C2 /* LaunchScreen.storyboard */; };
 		1132604A25C96D8400BAA0C2 /* SideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1132604925C96D8400BAA0C2 /* SideMenu.swift */; };
 		1132604E25C96E0600BAA0C2 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1132604D25C96E0600BAA0C2 /* InfoViewController.swift */; };
-		1132605125C96E2000BAA0C2 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1132605025C96E2000BAA0C2 /* SettingsViewController.swift */; };
 		1132605C25C978DA00BAA0C2 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1132605B25C978DA00BAA0C2 /* NewsTableViewCell.swift */; };
 		1132606225C982DD00BAA0C2 /* NewsFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1132606125C982DD00BAA0C2 /* NewsFeed.swift */; };
 		113C10F425CBC196008C12E7 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113C10F325CBC196008C12E7 /* Networking.swift */; };
@@ -33,7 +32,6 @@
 		1132603E25C962D000BAA0C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1132604925C96D8400BAA0C2 /* SideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenu.swift; sourceTree = "<group>"; };
 		1132604D25C96E0600BAA0C2 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
-		1132605025C96E2000BAA0C2 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		1132605B25C978DA00BAA0C2 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		1132606125C982DD00BAA0C2 /* NewsFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeed.swift; sourceTree = "<group>"; };
 		113C10F325CBC196008C12E7 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
@@ -110,7 +108,6 @@
 			children = (
 				1132603425C962CD00BAA0C2 /* ViewController.swift */,
 				1132604D25C96E0600BAA0C2 /* InfoViewController.swift */,
-				1132605025C96E2000BAA0C2 /* SettingsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -279,7 +276,6 @@
 				1132603325C962CD00BAA0C2 /* SceneDelegate.swift in Sources */,
 				1132604A25C96D8400BAA0C2 /* SideMenu.swift in Sources */,
 				1132604E25C96E0600BAA0C2 /* InfoViewController.swift in Sources */,
-				1132605125C96E2000BAA0C2 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
