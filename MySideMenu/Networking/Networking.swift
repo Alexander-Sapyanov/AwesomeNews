@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 class Networking {
     private var articles: NewsFeed?
     
