@@ -15,20 +15,26 @@ class NewsTableViewCell: UITableViewCell {
         
         // Image View
         self.imageView?.translatesAutoresizingMaskIntoConstraints = false
-        self.imageView?.centerYAnchor.constraint(equalTo: centerYAnchor ).isActive = true
-        self.imageView?.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
-        self.imageView?.heightAnchor.constraint(equalToConstant: 150).isActive = true
+     
         self.imageView?.contentMode = .scaleAspectFill
         self.imageView?.layer.cornerRadius = 10
         self.imageView?.clipsToBounds = true
  
         // Text label
         self.textLabel?.translatesAutoresizingMaskIntoConstraints = false
-        self.textLabel?.centerYAnchor.constraint(equalTo: imageView!.centerYAnchor).isActive = true
-        self.textLabel?.leadingAnchor.constraint(equalTo: imageView!.trailingAnchor, constant: 10).isActive = true
-        self.textLabel?.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
-        self.textLabel?.heightAnchor.constraint(equalTo: imageView!.heightAnchor, constant: 9/3).isActive = true
-        self.textLabel?.widthAnchor.constraint(equalToConstant: 150).isActive = true
+        
+        NSLayoutConstraint.activate([
+            
+            imageView!.centerYAnchor.constraint(equalTo: centerYAnchor),
+            imageView!.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            imageView!.heightAnchor.constraint(equalToConstant: 150),
+            textLabel!.centerYAnchor.constraint(equalTo: imageView!.centerYAnchor),
+            textLabel!.leadingAnchor.constraint(equalTo: imageView!.trailingAnchor, constant: 10),
+            textLabel!.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            textLabel!.heightAnchor.constraint(equalTo: imageView!.heightAnchor, constant: 9/3),
+            textLabel!.widthAnchor.constraint(equalToConstant: 150)
+        ])
+
         self.textLabel?.numberOfLines = 5
         self.textLabel?.adjustsFontForContentSizeCategory = true
         self.textLabel?.backgroundColor = .clear

@@ -16,20 +16,32 @@ class ViewController: UIViewController, MenuControllerDelegate {
     private var sideMenu: SideMenuNavigationController?
     private let infoController = InfoViewController()
     
-    // MARK: - JSON
-    private let url = "https://newsapi.org/v2/top-headlines?country=us&apiKey=9fb06d2a97d54c68a7c3ab48bc158c32"
-    private var datas = [Articles]()
+    // MARK: - Network
+    var datas = [Articles]()
     private let networkService = Networking()
+    
+    // MARK: - NewsTableView
     @IBOutlet weak var newsTableView: UITableView!
     
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setUpTablView()
+        setUpSideMenu()
+    }
+    
+    // MARK: - Functions
+
+    private func setUpTablView() {
         newsTableView.delegate = self
         newsTableView.dataSource = self
         newsTableView.register(NewsTableViewCell.self, forCellReuseIdentifier: NewsTableViewCell.identifire)
+        
+        request()
+    }
+    
+    private func setUpSideMenu(){
         
         let menu =  MenuController(with:[ "Top Headlines","Info"])
         menu.delegate = self
@@ -43,13 +55,11 @@ class ViewController: UIViewController, MenuControllerDelegate {
         addChildControllers()
         
         navigationController?.navigationBar.prefersLargeTitles = true
-        
-        request()
     }
     
-    // MARK: - Functions
-    
     private func request() {
+        let url = "https://newsapi.org/v2/top-headlines?country=us&apiKey=9fb06d2a97d54c68a7c3ab48bc158c32"
+        
         networkService.request(urlString: url) { [weak self] (result) in
             switch result {
             case .success(let newsFeed):
@@ -105,50 +115,8 @@ class ViewController: UIViewController, MenuControllerDelegate {
     }
 }
 
-// MARK: - Extensions
 
-// TableView Delegate
-extension ViewController:UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedTrail = datas[indexPath.row]
-        let url = selectedTrail.url
-        
-        let safariVC = SFSafariViewController(url: URL(string: url!)!)
-        safariVC.delegate = self
-        present(safariVC, animated: true, completion: nil)
-    }
-}
-// TableView Data source
-extension ViewController: UITableViewDataSource{
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return datas.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: NewsTableViewCell.identifire, for: indexPath) as! NewsTableViewCell
-        
-        let currentUrl = datas[indexPath.row].urlToImage
-        
-        guard let url = URL(string: currentUrl ?? "https://picsum.photos/200") else {return cell}
-        cell.imageView?.sd_setImage(with: url,placeholderImage: UIImage(named: "1"),options: [.continueInBackground,.progressiveLoad],completed: nil)
-        cell.textLabel?.text = datas[indexPath.row].title
-        cell.detailTextLabel?.text = datas[indexPath.row].publishedAt
-        cell.imageView?.clipsToBounds = true
-        cell.contentMode = .scaleAspectFit
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
-    }
-}
 
-// SafariDelegate
-extension ViewController: SFSafariViewControllerDelegate {
-    
-    func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
-        controller.dismiss(animated: true, completion: nil)
-    }
-}
+
+
 

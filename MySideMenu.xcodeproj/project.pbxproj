@@ -18,6 +18,9 @@
 		1132605C25C978DA00BAA0C2 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1132605B25C978DA00BAA0C2 /* NewsTableViewCell.swift */; };
 		1132606225C982DD00BAA0C2 /* NewsFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1132606125C982DD00BAA0C2 /* NewsFeed.swift */; };
 		113C10F425CBC196008C12E7 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113C10F325CBC196008C12E7 /* Networking.swift */; };
+		11C8FA502601E1E2004A4A03 /* TableViewDelegateExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C8FA4F2601E1E2004A4A03 /* TableViewDelegateExt.swift */; };
+		11C8FA532601E241004A4A03 /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C8FA522601E241004A4A03 /* TableViewDataSource.swift */; };
+		11C8FA562601E265004A4A03 /* SafariDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C8FA552601E265004A4A03 /* SafariDelegate.swift */; };
 		D282004A6E2BA7BE5D05A6F8 /* Pods_MySideMenu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD776C466A31631743AA5CC2 /* Pods_MySideMenu.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +39,9 @@
 		1132606125C982DD00BAA0C2 /* NewsFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeed.swift; sourceTree = "<group>"; };
 		113C10F325CBC196008C12E7 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		1158B4F9D38FA2BB1099CD10 /* Pods-MySideMenu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MySideMenu.release.xcconfig"; path = "Target Support Files/Pods-MySideMenu/Pods-MySideMenu.release.xcconfig"; sourceTree = "<group>"; };
+		11C8FA4F2601E1E2004A4A03 /* TableViewDelegateExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDelegateExt.swift; sourceTree = "<group>"; };
+		11C8FA522601E241004A4A03 /* TableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
+		11C8FA552601E265004A4A03 /* SafariDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariDelegate.swift; sourceTree = "<group>"; };
 		36363975049754C39058FBAC /* Pods-MySideMenu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MySideMenu.debug.xcconfig"; path = "Target Support Files/Pods-MySideMenu/Pods-MySideMenu.debug.xcconfig"; sourceTree = "<group>"; };
 		CD776C466A31631743AA5CC2 /* Pods_MySideMenu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MySideMenu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -80,6 +86,7 @@
 				1132605E25C9829200BAA0C2 /* Model */,
 				1132605F25C9829E00BAA0C2 /* View */,
 				1132606025C982A700BAA0C2 /* Controller */,
+				11C8FA4E2601E1BB004A4A03 /* Extensions */,
 				113C10F925CBE1F4008C12E7 /* Storyboards */,
 				113C10F725CBC218008C12E7 /* Networking */,
 			);
@@ -116,7 +123,6 @@
 			isa = PBXGroup;
 			children = (
 				113C10F325CBC196008C12E7 /* Networking.swift */,
-				113C10FB25CBE3E0008C12E7 /* Other */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -130,11 +136,14 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
-		113C10FB25CBE3E0008C12E7 /* Other */ = {
+		11C8FA4E2601E1BB004A4A03 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				11C8FA4F2601E1E2004A4A03 /* TableViewDelegateExt.swift */,
+				11C8FA522601E241004A4A03 /* TableViewDataSource.swift */,
+				11C8FA552601E265004A4A03 /* SafariDelegate.swift */,
 			);
-			path = Other;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		C0706762D3C53C6B0141CAB6 /* Pods */ = {
@@ -272,10 +281,13 @@
 				1132605C25C978DA00BAA0C2 /* NewsTableViewCell.swift in Sources */,
 				1132606225C982DD00BAA0C2 /* NewsFeed.swift in Sources */,
 				113C10F425CBC196008C12E7 /* Networking.swift in Sources */,
+				11C8FA502601E1E2004A4A03 /* TableViewDelegateExt.swift in Sources */,
 				1132603125C962CD00BAA0C2 /* AppDelegate.swift in Sources */,
+				11C8FA532601E241004A4A03 /* TableViewDataSource.swift in Sources */,
 				1132603325C962CD00BAA0C2 /* SceneDelegate.swift in Sources */,
 				1132604A25C96D8400BAA0C2 /* SideMenu.swift in Sources */,
 				1132604E25C96E0600BAA0C2 /* InfoViewController.swift in Sources */,
+				11C8FA562601E265004A4A03 /* SafariDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
